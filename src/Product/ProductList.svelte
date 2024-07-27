@@ -1,27 +1,23 @@
 <script>
     import ProductCard from './ProductCard.svelte';
-    import Sort from '../components/Sort.svelte'; // Import the Sort component
     import { products } from '../Store/productStore';
     import { get } from 'svelte/store';
-  
+    
     // Get the initial value of the products store
     let productList = get(products);
-  
+    
     // Subscribe to the products store to update productList whenever it changes
     products.subscribe(value => {
       productList = value;
     });
-  
+    
     const handleNavigate = (event) => {
       // Handle navigation to product detail page
       console.log('Navigate to product:', event.detail.id);
     };
   </script>
   
-  <div>
-    <!-- Include the Sort component -->
-    <Sort />
-  
+  <div class="product-list-container">
     <!-- Display the list of products -->
     <div class="product-list">
       {#each productList as product}
