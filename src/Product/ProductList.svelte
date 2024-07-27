@@ -16,7 +16,7 @@
       console.log('Navigate to product:', event.detail.id);
     };
   </script>
-  
+    
   <div class="product-list-container">
     <!-- Display the list of products -->
     <div class="product-list">
@@ -25,7 +25,7 @@
       {/each}
     </div>
   </div>
-  
+    
   <style>
     .product-list {
       display: grid;

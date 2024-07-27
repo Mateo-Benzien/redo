@@ -10,6 +10,7 @@ const filterItem = writable('All categories');
 
 const setSorting = (newSorting) => {
   sorting.set(newSorting);
+  // Trigger sorting when sorting changes
   sortProducts();
 };
 
@@ -43,6 +44,7 @@ const fetchProducts = async () => {
     products.set(data);
     originalProducts.set(data);
 
+    // Ensure products are sorted and searched after fetching
     sortProducts();
     searchProducts();
   } catch (err) {
@@ -62,6 +64,7 @@ const sortProducts = () => {
   } else if (sortOrder === 'high') {
     sortedProducts.sort((a, b) => b.price - a.price);
   } else {
+    // Default sorting: show original products
     products.set(get(originalProducts));
     return;
   }
